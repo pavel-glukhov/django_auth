@@ -7,7 +7,7 @@ services:
     volumes:
       - static_value:/code/django_auth/static/
   nginx:
-    image: latest
+    image: 1.25.0
     ports:
     - 80:80
     volumes:
