@@ -32,3 +32,4 @@ services:
 
 volumes:
   static_value:
+  certbot_challenges:
