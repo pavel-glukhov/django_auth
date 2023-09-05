@@ -12,10 +12,9 @@ services:
     image: nginx:1.21.1
     restart: unless-stopped
     volumes:
-      - certbot_challenges:/var/www/.well-known/acme-challenge
       - ./data/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/
+      - ./data/certbot/www:/var/www/certbot
       - static_value:/var/html/static/
     ports:
       - 80:80
@@ -27,9 +26,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/
-      - certbot_challenges:/var/www/.well-known/acme-challenge
+      - ./data/certbot/www:/var/www/certbot
 
 volumes:
   static_value:
-  certbot_challenges:
